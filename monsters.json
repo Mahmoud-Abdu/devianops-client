@@ -1,0 +1,32 @@
+[{
+  "quests": [
+    {
+      "questName": "Ashrafeya ZX1",
+      "latitude": 30.03668,
+      "longitude": 31.48309,
+      "numberOfEnemies": 20,
+      "enemyNames": ["Wasp2", "Wasp"]
+    },
+    {
+      "questName": "Quest 2",
+      "latitude": 30.038294278882166,
+      "longitude": 31.48198835677776,
+      "numberOfEnemies": 50,
+      "enemyNames": ["Phanto", "Vambat", "AirWarlord01"]
+    },
+    {
+      "questName": "MahmoudSherifST",
+      "latitude": 30.037829637683583,
+      "longitude": 31.485189176970074,
+      "numberOfEnemies": 50,
+      "enemyNames": ["Phanto", "Vambat"]
+    },
+    {
+      "questName": "AshXXX1",
+      "latitude": 30.03668,
+      "longitude": 31.48309,
+      "numberOfEnemies": 30,
+      "enemyNames": ["Phanto", "Vambat"]
+    }
+  ]
+}]
