@@ -27,8 +27,7 @@ function Register({ onUpdate }) {
       // console.log("Token: ", token);
       // console.log("decoded", decoded);
     } catch (err) {
-      const { data: error } = err.response;
-      console.log("ee", error);
+      throw err;
     }
   };
 
