@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const questsUrl = "http://localhost:5000/api/quests";
+// const questsUrl = "http://localhost:5000/api/quests";
+const questsUrl = "https://devianops.netlify.app/api/quests";
 
 export const getQuests = async () => {
   const { data: quests } = await axios.get(questsUrl);
