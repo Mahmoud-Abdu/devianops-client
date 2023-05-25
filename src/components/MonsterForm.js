@@ -13,14 +13,17 @@ function MonsterForm(props) {
 
   const { id: monster_Id } = useParams();
 
-  const fetchMonster = async () => {
-    const fetchedMonster = await getMonster(monster_Id);
-    setMonster(fetchedMonster);
-  };
+ 
 
   useEffect(() => {
-    if (monster_Id) fetchMonster();
-  }, []);
+    if (monster_Id) {
+      const fetchMonster = async () => {
+        const fetchedMonster = await getMonster(monster_Id);
+        setMonster(fetchedMonster);
+      };
+      fetchMonster();
+    }
+  }, [monster_Id]);
 
   const handleChange = (e) => {
     setMonster({ ...monster, [e.target.name]: e.target.value });

@@ -17,12 +17,6 @@ function QuestForm(props) {
     enemyNames: [],
   });
 
-  const fetchQuest = async () => {
-    const fetchedQuest = await getQuest(quest_Id);
-    console.log("ftc", fetchedQuest);
-    setQuest(fetchedQuest);
-  };
-
   const fetchMonsters = async () => {
     const fetchedMonsters = await getMonsters();
     console.log("ftc mnstsr", fetchedMonsters);
@@ -30,7 +24,15 @@ function QuestForm(props) {
   };
 
   useEffect(() => {
-    if (quest_Id) fetchQuest();
+    if (quest_Id) {
+      const fetchQuest = async () => {
+        const fetchedQuest = await getQuest(quest_Id);
+        console.log("ftc", fetchedQuest);
+        setQuest(fetchedQuest);
+      };
+
+      fetchQuest();
+    }
   }, [quest_Id]);
 
   function handleSubmit(e) {

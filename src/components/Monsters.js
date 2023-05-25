@@ -4,17 +4,19 @@ import { Button, Modal } from "react-bootstrap";
 import AlertModal from "./AlertModal";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
-
-function Monsters(props) {
+ 
+function Monsters({ user }) {
   const [monsters, setMonsters] = useState([]);
   const [show, setShow] = useState(false);
   const [monster_Id, setMonster_Id] = useState("");
 
-  const fetchMonsters = async () => {
-    const fetchedMonsters = await getMonsters();
-    setMonsters(fetchedMonsters);
-    console.log(monsters);
-  };
+  useEffect(() => {
+    const fetchMonsters = async () => {
+      const fetchedMonsters = await getMonsters();
+      setMonsters(fetchedMonsters);
+    };
+    fetchMonsters();
+  }, [monsters.length]);
 
   const handleClose = () => setShow(false);
   const handleShow = (id) => {
@@ -23,16 +25,17 @@ function Monsters(props) {
   };
 
   const handleDelete = async () => {
-    await deleteMonster(monster_Id).then((res) =>
-      console.log("deleted ?", res)
-    );
-    fetchMonsters();
+    try {
+      const { data: deletedMonster } = await deleteMonster(monster_Id);
+      const monstersAfterDelete = monsters.filter(
+        (monster) => monster._id !== deletedMonster._id
+      );
+
+      setMonsters(monstersAfterDelete);
+    } catch (error) {
+      console.log("err", error);
+    }
   };
-
-  useEffect(() => {
-    fetchMonsters();
-  }, [monsters.length]);
-
   return (
     <>
       <Table striped bordered hover>

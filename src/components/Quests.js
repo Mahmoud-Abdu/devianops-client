@@ -22,8 +22,12 @@ function Quests(props) {
   };
 
   const handleDelete = async () => {
-    await deleteQuest(quest_Id).then((res) => console.log("deleted ?", res));
-    fetchQuests();
+    const { data: deletedQuest } = await deleteQuest(quest_Id);
+    const questsAfterDelete = quests.filter(
+      (quest) => quest._id !== deletedQuest._id
+    );
+    setQuests(questsAfterDelete);
+    console.log("deleted", deletedQuest);
   };
 
   useEffect(() => {

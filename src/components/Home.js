@@ -1,24 +1,35 @@
 import React from "react";
-import { Container, Form, Button } from "react-bootstrap";
-import { Navigate, Link } from "react-router-dom";
-function Home(props) {
+import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+function Home({ user }) {
   return (
     <Container
-      className="align-items-center d-flex"
-      style={{ height: "100vh" }}
+      className="align-items-center d-flex justify-content-around"
+      style={{ height: "80vh" }}
     >
-      <Form className="w-100 align-items-end d-flex" style={{justifyContent:"space-around"}}>
-        <Form.Group>
-           <Link to='/quests/form' className="m-2 btn btn-primary">
-            Add New Quest
-          </Link>
-        </Form.Group>
-        <Form.Group>
-            <Link to='/monsters/form' className="m-2 btn btn-primary">
-                Add New Monster
-            </Link>
-        </Form.Group>
-      </Form>
+      {user && (
+        <Link to="/monsters/form" className="m-2 btn btn-primary">
+          Add New Monster
+        </Link>
+      )}
+
+      {user && (
+        <Link to="/quests/form" className="m-2 btn btn-primary">
+          Add New Quest
+        </Link>
+      )}
+
+      {!user && (
+        <Link to="/register" className="m-2 btn btn-primary py-2 px-4">
+          Register
+        </Link>
+      )}
+
+      {!user && (
+        <Link to="/login" className="m-2 btn btn-primary py-2 px-4">
+          Login
+        </Link>
+      )}
     </Container>
   );
 }

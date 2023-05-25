@@ -20,7 +20,7 @@ function AlertModal({ item, handleClose, handleDelete }) {
           Close
         </Button>
         <Button variant="primary" onClick={onDelete}>
-          Save Changes
+          Confirm
         </Button>
       </Modal.Footer>
     </>

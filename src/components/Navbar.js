@@ -2,9 +2,10 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
- import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import Logout from "./Logout";
 
-function NavBar(props) {
+function NavBar({ user, onUpdate }) {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -17,12 +18,18 @@ function NavBar(props) {
             <NavLink className="nav-link" to="/">
               Home
             </NavLink>
-            <NavLink className="nav-link" to="/quests">
-              Quests
-            </NavLink>
-            <NavLink className="nav-link" to="/monsters">
-              Monsters
-            </NavLink>
+            {user && (
+              <NavLink className="nav-link" to="/quests">
+                Quests
+              </NavLink>
+            )}
+            {user && (
+              <NavLink className="nav-link" to="/monsters">
+                Monsters
+              </NavLink>
+            )}
+
+            {user && <Logout onUpdate={onUpdate} />}
           </Nav>
         </Navbar.Collapse>
       </Container>
