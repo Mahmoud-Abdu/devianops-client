@@ -2,7 +2,7 @@ import axios from "axios";
 
 // const monstersUrl = "http://localhost:5000/api/monsters";
 
-const monstersUrl = "https://devianops.netlify.app/api/monsters";
+const monstersUrl = "https://devianops.onrender.com/api/monsters";
 
 export const getMonsters = async () => {
   const { data: monsters } = await axios.get(monstersUrl);

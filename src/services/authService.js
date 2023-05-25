@@ -4,8 +4,8 @@ import jwtDecode from "jwt-decode";
 // const registerUrl = "http://localhost:5000/api/users";
 // const loginUrl = "http://localhost:5000/api/login";
 
-const registerUrl = "https://devianops.netlify.app/api/users";
-const loginUrl = "https://devianops.netlify.app/api/login";
+const registerUrl = "https://devianops.onrender.com/api/users";
+const loginUrl = "https://devianops.onrender.com/api/login";
  export const register = async (user) => {
   return axios.post(registerUrl, user);
 };
